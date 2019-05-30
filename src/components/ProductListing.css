@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.prod-images {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+
+img {
+  width: 300px;
+  margin: 10px 15px;
+}

@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { requestProducts } from "./../redux/productReducer"
 
+import "./ProductListing.css"
+
 class ProductListing extends Component {
   constructor() {
     super()
@@ -22,18 +24,29 @@ class ProductListing extends Component {
   }
 
   render() {
-    console.log("THIS IS THE PRODUCT LIST", this.state.products)
+    const list = this.state.products.map((product, i) => {
+      return (
+        <div className="image" key={i}>
+          <img src={product.img0} alt="" />
+        </div>
+      )
+    })
+
     return (
-      <div>Jello World</div>
+      <div>
+        <h1>Product Images</h1>
+        <div className="prod-images">
+          {list}
+        </div>
+
+      </div>
+
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { products } = state.productReducer
-  return {
-    products
-  }
+  return state
 }
 
 export default connect(mapStateToProps, { requestProducts })(ProductListing)
